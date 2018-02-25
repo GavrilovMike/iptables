@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.bmstu.iptables.xtext.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.bmstu.iptables.xtext.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.bmstu.iptables.xtext,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.bmstu.iptables.xtext.ide.contentassist.antlr.internal,
+ com.bmstu.iptables.xtext.ide.contentassist.antlr
+

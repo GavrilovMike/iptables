@@ -1,0 +1,27 @@
+grammar com.bmstu.iptables.xtext.Language with org.eclipse.xtext.common.Terminals
+
+generate language "http://www.bmstu.com/iptables/xtext/Language"
+
+Model:
+	chains+=Chain*;
+	
+Chain:
+	'Chain' chainType=ChainType '(''policy' policyType=PolicyType')'
+	'target' 'prot' 'opt' 'source' 'destination'
+	parts+=ChainPart*;
+	
+enum ChainType:
+	INPUT='INPUT'
+	| OUTPUT = 'OUTPUT'
+	| FORWARD = 'FORWARD'
+	| PREROUTING = 'PREROUTING'
+	| POSTROUTING = 'POSTROUTING';
+	
+enum PolicyType:
+	DROP = 'DROP'
+	| ACCEPT = 'ACCEPT';
+	
+ChainPart:
+	target=PolicyType prot=STRING opt=STRING source=IP_ADDRESS destination=IP_ADDRESS;
+	
+terminal IP_ADDRESS: 'anywhere' | '!'?INT'.'INT'.'INT'.'INT'/'INT(',''!'?INT'.'INT'.'INT'.'INT'/'INT)*;
