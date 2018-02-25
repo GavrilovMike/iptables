@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="language" nsURI="http://www.bmstu.com/iptables/xtext/Language"
+    nsPrefix="language">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chains" upperBound="-1"
+        eType="#//Chain" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Chain">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chainType" eType="#//ChainType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="policyType" eType="#//PolicyType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
+        eType="#//ChainPart" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ChainType">
+    <eLiterals name="INPUT" literal="INPUT"/>
+    <eLiterals name="OUTPUT" value="1" literal="OUTPUT"/>
+    <eLiterals name="FORWARD" value="2" literal="FORWARD"/>
+    <eLiterals name="PREROUTING" value="3" literal="PREROUTING"/>
+    <eLiterals name="POSTROUTING" value="4" literal="POSTROUTING"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PolicyType">
+    <eLiterals name="DROP" literal="DROP"/>
+    <eLiterals name="ACCEPT" value="1" literal="ACCEPT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChainPart">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="#//PolicyType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="opt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="destination" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
